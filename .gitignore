@@ -4,3 +4,6 @@ env/
 # Python cache
 __pycache__/
 *.pyc
+
+# Arquivos de Banco de Dados
+*.db
