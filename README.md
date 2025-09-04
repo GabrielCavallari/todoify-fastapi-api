@@ -1,10 +1,10 @@
 # Todoify API
 
-Uma API RESTful para gerenciamento de tarefas (To-Do list), construída com Python, FastAPI e Pydantic. Este projeto foi desenvolvido como parte do "Guia de Estudos Completo para Engenharia de Backend".
+Uma API RESTful para gerenciamento de tarefas (To-Do list), construída com Python e FastAPI. Este projeto foi desenvolvido como parte do "Guia de Estudos Completo para Engenharia de Backend" e agora persiste os dados usando SQLAlchemy e um banco de dados SQL.
 
 ## ✨ Funcionalidades
 
-A API oferece funcionalidades completas de CRUD (Create, Read, Update, Delete) para tarefas.
+A API oferece funcionalidades completas de CRUD (Create, Read, Update, Delete) para tarefas, com os dados sendo salvos permanentemente.
 
 * **Criar** uma nova tarefa.
 * **Listar** todas as tarefas existentes.
@@ -17,7 +17,9 @@ A API oferece funcionalidades completas de CRUD (Create, Read, Update, Delete) p
 * **Python 3**
 * **FastAPI**: Para a construção da API.
 * **Pydantic**: Para validação e serialização de dados.
-* **Uvicorn**: Como servidor ASGI para rodar a aplicação.
+* **SQLAlchemy**: ORM para interagir com o banco de dados SQL.
+* **SQLite**: Banco de dados utilizado para persistência local.
+* **Uvicorn**: Servidor ASGI para rodar a aplicação.
 
 ## 🚀 Como Executar Localmente
 
@@ -50,16 +52,17 @@ Siga os passos abaixo para rodar o projeto na sua máquina.
     ```bash
     uvicorn main:app --reload
     ```
+    **Nota:** Na primeira vez que você executar o servidor, o SQLAlchemy criará automaticamente um arquivo de banco de dados chamado `test.db` e as tabelas necessárias dentro dele.
 
 5.  **Acesse a documentação interativa** para testar os endpoints no seu navegador:
     [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-##  API Endpoints
+## API Endpoints
 
-| Método HTTP | Endpoint                 | Descrição                      |
-|-------------|--------------------------|--------------------------------|
-| `GET`       | `/todos`                 | Lista todas as tarefas.        |
-| `POST`      | `/todos`                 | Cria uma nova tarefa.          |
-| `GET`       | `/todos/{todo_id}`       | Busca uma tarefa pelo ID.      |
-| `PUT`       | `/todos/{todo_id}`       | Atualiza uma tarefa pelo ID.   |
-| `DELETE`    | `/todos/{todo_id}`       | Deleta uma tarefa pelo ID.     |
+| Método HTTP | Endpoint | Descrição |
+| --- | --- | --- |
+| `GET` | `/todos` | Lista todas as tarefas. |
+| `POST` | `/todos` | Cria uma nova tarefa. |
+| `GET` | `/todos/{todo_id}` | Busca uma tarefa pelo ID. |
+| `PUT` | `/todos/{todo_id}` | Atualiza uma tarefa pelo ID. |
+| `DELETE` | `/todos/{todo_id}` | Deleta uma tarefa pelo ID. |
